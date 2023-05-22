@@ -1,4 +1,5 @@
-import { deleteBanner } from '../../../services/apiServices';
+
+import { deleteBanner } from '../../../services/banner.service';
 import './modalDelete.scss';
 import React, { useState, useEffect, useRef } from 'react';
 

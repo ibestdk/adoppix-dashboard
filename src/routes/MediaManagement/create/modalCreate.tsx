@@ -1,10 +1,11 @@
 import './modalCreate.scss';
 import { AiFillCamera, AiOutlineCloseCircle } from 'react-icons/ai';
-
+import { uploadBannner } from '../../../services/banner.service';
 import React, { useState, useEffect, useRef } from 'react';
 
 export default function ModalAdd({ visible, onClose }) {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [redirectUrl, setRedirectUrl] = useState<any>('');
 
   const handleOnClose = (e) => {
     if (e.target.id === 'modal-card') onClose();
@@ -30,6 +31,9 @@ export default function ModalAdd({ visible, onClose }) {
 
   const submitNewBanner = async () => {
     // Submit logic here
+    console.log(redirectUrl)
+    console.log(selectedImage)
+    await uploadBannner(selectedImage, redirectUrl);
   };
 
   if (!visible) return null;
@@ -73,6 +77,7 @@ export default function ModalAdd({ visible, onClose }) {
                 type="text"
                 id="RedirectUrl"
                 className="bg-adopdark rounded-lg focus:outline-none outline-0 border-0"
+                onChange={(e) => setRedirectUrl(e.target.value)}
               />
             </div>
           </div>

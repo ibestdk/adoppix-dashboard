@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { IoMdAddCircleOutline } from 'react-icons/io';
 import { BsFillTrashFill } from 'react-icons/bs';
-import { getBanner } from '../../services/apiServices';
 import { getToken } from '../../services/authorize';
 import { useState } from 'react';
 import ModalAdd from './create/modalCreate';
 import ModalDelete from './delete/modalDelete';
+import { getBanner } from '../../services/banner.service';
 export const BannerManager = () => {
   const [modalOpen, setOpenModal] = useState(false);
   const [modalDeleteOpen, setDeleteModal] = useState(false);
