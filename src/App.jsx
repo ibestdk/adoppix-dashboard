@@ -10,6 +10,7 @@ import { ProtectedRoute } from './routes/AuthProvider/authProvider';
 import { Login } from './routes/AuthProvider/login';
 import { BannerManager } from './routes/MediaManagement/banner-management';
 import { Report } from './routes/reports/report';
+import { Withdraw } from './routes/Withdraw/withdraw';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route index element={<SummaryData />} />
           <Route path='banner' element={<BannerManager />} />
           <Route path='report' element={<Report />} />
+          <Route path='withdraw' element={<Withdraw />} />
         </Route>
         <Route element={<WithOutNav />}></Route>
       </Route>
