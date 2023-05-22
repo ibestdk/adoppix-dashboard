@@ -72,31 +72,6 @@ export const NavBar = () => {
           <div>
             <div>
               <div
-                onClick={() => handleSelectNav(1)}
-                className="text-xl flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
-              >
-                <BsClipboardData className="mx-2" />
-                {navOpen && <div>Summary Data</div>}
-              </div>
-
-              <div
-                className={`${
-                  navSelect === 1 && navSubOpen === true ? 'h-[132px]' : ' h-[0px]'
-                } duration-300 bg-adoppix overflow-hidden `}
-              >
-                <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
-                  <div>In Come</div>
-                </div>
-                <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
-                  <div>Rate</div>
-                </div>
-                <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
-                  <div>Ads</div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div
                 onClick={() => handleSelectNav(2)}
                 className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
               >
@@ -116,25 +91,6 @@ export const NavBar = () => {
             </div>
             <div>
               <div
-                onClick={() => handleSelectNav(3)}
-                className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
-              >
-                <MdOutlineRedeem className="mx-2 text-xl" />
-                {navOpen && <div className="text-lg">รหัสกิจกรรม</div>}
-              </div>
-
-              <div
-                className={`${
-                  navSelect === 3 && navSubOpen === true ? 'h-[44px]' : ' h-[0px]'
-                } duration-300 bg-adoppix overflow-hidden`}
-              >
-                <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
-                  <div>In Come</div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div
                 onClick={() => handleSelectNav(4)}
                 className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
               >
@@ -148,7 +104,7 @@ export const NavBar = () => {
                 } duration-300 bg-adoppix overflow-hidden`}
               >
                 <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
-                  <div>In Come</div>
+                  <NavLink to="report" >จัดการรายงาน</NavLink>
                 </div>
               </div>
             </div>
