@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getReports } from '../../services/report.service';
+import { getReports, rejectSync, removeSync } from '../../services/report.service';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { BsFillTrashFill } from 'react-icons/bs'
 
@@ -16,12 +16,16 @@ export const Report = () => {
     fetchReport();
   }, []);
 
-  const remove = async () => {
-    console.log('on remove')
+  const remove = async (id) => {
+    await removeSync(id);
+    const newReports = reports.filter(x => x.id !== id);
+    setReports(newReports);
   }
 
-  const reject = async () => {
-    console.log('on reject')
+  const reject = async (id) => {
+    await rejectSync(id);
+    const newReports = reports.filter(x => x.id !== id);
+    setReports(newReports);
   }
 
   return (
@@ -65,8 +69,8 @@ export const Report = () => {
                   <p className="text-white">{report.createdAt}</p>
                 </div>
                 <div className="flex items-center">
-                  <BsFillTrashFill onClick={remove} className='text-white bg-red-600 hover:brightness-75 transition p-2 rounded-full text-4xl cursor-pointer'></BsFillTrashFill>
-                  <AiOutlineCloseCircle onClick={remove} className='text-white bg-red-600 hover:brightness-75 transition p-1 rounded-full text-4xl cursor-pointer ml-2'></AiOutlineCloseCircle>
+                  <BsFillTrashFill onClick={() => remove(report.id)} className='text-white bg-red-600 hover:brightness-75 transition p-2 rounded-full text-4xl cursor-pointer'></BsFillTrashFill>
+                  <AiOutlineCloseCircle onClick={() => reject(report.id)} className='text-white bg-red-600 hover:brightness-75 transition p-1 rounded-full text-4xl cursor-pointer ml-2'></AiOutlineCloseCircle>
                 </div>
               </div>
             );

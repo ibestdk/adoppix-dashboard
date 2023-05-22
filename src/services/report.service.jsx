@@ -17,3 +17,30 @@ export const getReports = async () => {
 
   return reports.data.data;
 };
+
+
+export const removeSync = async (id) => {
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    'Access-Control-Allow-Origin': '*',
+  };
+
+  await axios({
+    method: 'delete',
+    url: `https://localhost:7179/api/report/${id}/post`,
+    headers: headers
+  }).catch((err) => console.log(err));
+}
+
+export const rejectSync = async (id) => {
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    'Access-Control-Allow-Origin': '*',
+  };
+
+  await axios({
+    method: 'delete',
+    url: `https://localhost:7179/api/report/${id}`,
+    headers: headers
+  }).catch((err) => console.log(err));
+}
