@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import { HiChevronLeft } from 'react-icons/hi';
 import { RiAdminLine } from 'react-icons/ri';
-import { BiLogOut ,BiMoneyWithdraw } from 'react-icons/bi';
-import { MdOutlinePermMedia, MdOutlineRedeem , MdReportGmailerrorred} from 'react-icons/md';
+import { BiLogOut, BiMoneyWithdraw } from 'react-icons/bi';
+import {
+  MdOutlinePermMedia,
+  MdOutlineRedeem,
+  MdReportGmailerrorred,
+} from 'react-icons/md';
 
 import { BsClipboardData } from 'react-icons/bs';
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from 'react-router-dom';
 import { logout } from '../../services/authorize';
 export const NavBar = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [navOpen, setNavOpen] = useState(true);
   const [navSelect, setNavSelect] = useState(0);
@@ -17,21 +21,19 @@ export const NavBar = () => {
   const handleOpenNav = () => {
     setNavOpen(!navOpen);
     if (navOpen === true) {
-        setNavSubOpen(false)
-    }
-    else{
-        setNavSubOpen(true)
+      setNavSubOpen(false);
+    } else {
+      setNavSubOpen(true);
     }
   };
 
-  
   const resetRoute = () => {
-    navigate("/login");
+    navigate('/login');
     setTimeout(() => {
       location.reload();
     }, 500);
 
-    console.log("repage")
+    console.log('repage');
   };
 
   const handleSelectNav = (id) => {
@@ -40,7 +42,7 @@ export const NavBar = () => {
       setNavSubOpen(false);
     } else {
       setNavSelect(id);
-      setNavSubOpen(true)
+      setNavSubOpen(true);
     }
   };
   return (
@@ -81,11 +83,13 @@ export const NavBar = () => {
 
               <div
                 className={`${
-                  navSelect === 2 && navSubOpen === true  ? 'h-[44px]' : ' h-[0px]'
+                  navSelect === 2 && navSubOpen === true
+                    ? 'h-[44px]'
+                    : ' h-[0px]'
                 } duration-300 bg-adoppix overflow-hidden`}
               >
                 <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
-                  <NavLink to="banner" >Banner</NavLink>
+                  <NavLink to="banner">Banner</NavLink>
                 </div>
               </div>
             </div>
@@ -100,11 +104,13 @@ export const NavBar = () => {
 
               <div
                 className={`${
-                  navSelect === 4 && navSubOpen === true  ? 'h-[44px]' : ' h-[0px]'
+                  navSelect === 4 && navSubOpen === true
+                    ? 'h-[44px]'
+                    : ' h-[0px]'
                 } duration-300 bg-adoppix overflow-hidden`}
               >
                 <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
-                  <NavLink to="report" >จัดการรายงาน</NavLink>
+                  <NavLink to="report">จัดการรายงาน</NavLink>
                 </div>
               </div>
             </div>
@@ -119,7 +125,9 @@ export const NavBar = () => {
 
               <div
                 className={`${
-                  navSelect === 5 && navSubOpen === true ? 'h-[44px]' : ' h-[0px]'
+                  navSelect === 5 && navSubOpen === true
+                    ? 'h-[44px]'
+                    : ' h-[0px]'
                 } duration-300 bg-adoppix overflow-hidden`}
               >
                 <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
@@ -138,19 +146,26 @@ export const NavBar = () => {
 
               <div
                 className={`${
-                  navSelect === 6&& navSubOpen === true  ? 'h-[44px]' : ' h-[0px]'
+                  navSelect === 6 && navSubOpen === true
+                    ? 'h-[88px]'
+                    : ' h-[0px]'
                 } duration-300 bg-adoppix overflow-hidden`}
               >
                 <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
-                  <NavLink to="admin-management">จัดการผู้ดูแล</NavLink>
+                  <NavLink to="admin/management">จัดการผู้ดูแล</NavLink>
+                </div>
+                <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
+                  <NavLink to="admin/register">ลงทะเบียนผู้ดูแล</NavLink>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div>
-          <div onClick={() => logout(() => resetRoute())}  
-          className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
+          <div
+            onClick={() => logout(() => resetRoute())}
+            className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
+          >
             <BiLogOut className="mx-2 text-xl" />
             {navOpen && <div className="text-lg">Logout</div>}
           </div>

@@ -31,3 +31,23 @@ export const disableToggle = async (id) => {
 
     return result.data.data;
 }
+
+export const registerAdmin = async (email, username, password) => {
+    const headers = {
+        Authorization: `Bearer ${token}`,
+        'Access-Control-Allow-Origin': '*',
+    };
+    let result;
+    result = await axios({
+        method: 'post',
+        url: 'https://localhost:7179/api/user/register-admin',
+        headers: headers,
+        data: {
+            email: email,
+            username: username,
+            password: password
+        }
+    }).catch((err) => result = err.response);
+
+    return result.data;
+}

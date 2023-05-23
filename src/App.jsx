@@ -12,6 +12,7 @@ import { BannerManager } from './routes/MediaManagement/banner-management';
 import { Report } from './routes/reports/report';
 import { Withdraw } from './routes/Withdraw/withdraw';
 import { AdminManange } from './routes/UserManagement/adminManage';
+import { AdminRegister } from './routes/UserManagement/adminRegister';
 
 function App() {
 
@@ -23,7 +24,8 @@ function App() {
           <Route path='banner' element={<BannerManager />} />
           <Route path='report' element={<Report />} />
           <Route path='withdraw' element={<Withdraw />} />
-          <Route path='admin-management' element={<AdminManange />} />
+          <Route path='admin/management' element={<AdminManange />} />
+          <Route path='admin/register' element={<AdminRegister />} />
         </Route>
         <Route element={<WithOutNav />}></Route>
       </Route>

@@ -25,7 +25,7 @@ export const AdminManange = () => {
 
   return (
     <div className="mx-4 mt-10 w-full">
-      <h1 className="font-semibold text-2xl mb-4">จัดการคำขอถอนเงิน</h1>
+      <h1 className="font-semibold text-2xl mb-4">จัดการผู้ดูแลระบบ</h1>
       <div className="grid grid-cols-7 bg-adopdark p-2 py-6 mb-5">
         <div className="">
           <p className="flex-1 text-white font-bold">id</p>
