@@ -11,6 +11,7 @@ import { Login } from './routes/AuthProvider/login';
 import { BannerManager } from './routes/MediaManagement/banner-management';
 import { Report } from './routes/reports/report';
 import { Withdraw } from './routes/Withdraw/withdraw';
+import { AdminManange } from './routes/UserManagement/adminManage';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='banner' element={<BannerManager />} />
           <Route path='report' element={<Report />} />
           <Route path='withdraw' element={<Withdraw />} />
+          <Route path='admin-management' element={<AdminManange />} />
         </Route>
         <Route element={<WithOutNav />}></Route>
       </Route>

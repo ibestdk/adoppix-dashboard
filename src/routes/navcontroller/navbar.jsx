@@ -142,7 +142,7 @@ export const NavBar = () => {
                 } duration-300 bg-adoppix overflow-hidden`}
               >
                 <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
-                  <div>In Come</div>
+                  <NavLink to="admin-management">จัดการผู้ดูแล</NavLink>
                 </div>
               </div>
             </div>
