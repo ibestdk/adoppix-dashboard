@@ -8,7 +8,6 @@ export const Report = () => {
 
   const fetchReport = async () => {
     const reports = await getReports();
-    console.log(reports);
     setReports(reports);
   };
 
