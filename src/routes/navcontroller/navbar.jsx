@@ -159,6 +159,27 @@ export const NavBar = () => {
                 </div>
               </div>
             </div>
+            <div>
+              <div
+                onClick={() => handleSelectNav(7)}
+                className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
+              >
+                <RiAdminLine className="mx-2 text-xl" />
+                {navOpen && <div className="text-lg">จัดการคำถาม</div>}
+              </div>
+
+              <div
+                className={`${
+                  navSelect === 7 && navSubOpen === true
+                    ? 'h-[44px]'
+                    : ' h-[0px]'
+                } duration-300 bg-adoppix overflow-hidden`}
+              >
+                <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
+                  <NavLink to="qa">ถอบ - ตอบ</NavLink>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div>

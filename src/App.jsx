@@ -13,6 +13,7 @@ import { Report } from './routes/reports/report';
 import { Withdraw } from './routes/Withdraw/withdraw';
 import { AdminManange } from './routes/UserManagement/adminManage';
 import { AdminRegister } from './routes/UserManagement/adminRegister';
+import { QA } from './routes/QA/qa';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path='withdraw' element={<Withdraw />} />
           <Route path='admin/management' element={<AdminManange />} />
           <Route path='admin/register' element={<AdminRegister />} />
+          <Route path='qa' element={<QA />} />
         </Route>
         <Route element={<WithOutNav />}></Route>
       </Route>
