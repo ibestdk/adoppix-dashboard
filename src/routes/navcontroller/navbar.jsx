@@ -7,6 +7,7 @@ import {
   MdOutlineRedeem,
   MdReportGmailerrorred,
 } from 'react-icons/md';
+import { AiFillWechat } from "react-icons/ai";
 
 import { BsClipboardData } from 'react-icons/bs';
 import { useNavigate, NavLink } from 'react-router-dom';
@@ -164,7 +165,7 @@ export const NavBar = () => {
                 onClick={() => handleSelectNav(7)}
                 className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
               >
-                <RiAdminLine className="mx-2 text-xl" />
+                <AiFillWechat className="mx-2 text-xl" />
                 {navOpen && <div className="text-lg">จัดการคำถาม</div>}
               </div>
 

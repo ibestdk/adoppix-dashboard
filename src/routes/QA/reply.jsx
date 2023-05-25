@@ -8,6 +8,11 @@ export const Reply = ({ qaId, isOpenReply, onCloseReply }) => {
   const [messageInput, setMessageInput] = useState('');
   const [isLoadingSendMessage, setIsLoadingSendMessage] = useState(false);
   const cancelButtonRef = useRef(null);
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    scrollRef.current?.scrollIntoView({behavior: 'smooth'});
+  }, [reply])
 
   useEffect(() => {
     setOpen(isOpenReply)
@@ -22,7 +27,6 @@ export const Reply = ({ qaId, isOpenReply, onCloseReply }) => {
   }, [open]);
 
   useEffect(() => {
-    console.log(messageInput);
   }, [messageInput]);
 
   const fetchReply = async () => {
@@ -95,6 +99,7 @@ export const Reply = ({ qaId, isOpenReply, onCloseReply }) => {
                             <p>ไม่มีการตอบกลับ</p>
                           </div>
                         )}
+                        <div ref={scrollRef} />
                       </div>
                       <hr className='mt-2'></hr>
                       <div className='relative mt-5 overflow-hidden w-full'>
