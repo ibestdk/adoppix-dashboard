@@ -28,8 +28,8 @@ export const disableToggle = async (id) => {
         url: `https://localhost:7179/api/user/${id}/disable-toggle`,
         headers: headers,
     }).catch((err) => console.log(err));
-
-    return result.data.data;
+ 
+    return result.data;
 }
 
 export const registerAdmin = async (email, username, password) => {
