@@ -10,7 +10,7 @@ export const BannerManager = () => {
   const [modalOpen, setOpenModal] = useState(false);
   const [modalDeleteOpen, setDeleteModal] = useState(false);
   const [bannerList, setBannerList] = useState([]);
-  const [bannerToDelete,  setBannerToDelete] = useState();
+  const [bannerToDelete, setBannerToDelete] = useState();
   const handleOnClose = () => setOpenModal(false);
   const handleOnCloseModalDelete = () => setDeleteModal(false);
   const fetchBanner = async () => {
@@ -19,14 +19,13 @@ export const BannerManager = () => {
     setBannerList(response);
     console.log('response', response);
   };
-  
-const callDeleteModal = (banner) =>{
-    setDeleteModal(true);  
-    setBannerToDelete({ id: banner.id, name: banner.name })
-}
+
+  const callDeleteModal = (banner) => {
+    setDeleteModal(true);
+    setBannerToDelete({ id: banner.id, name: banner.name });
+  };
 
   useEffect(() => {
-  
     fetchBanner();
   }, []);
   return (
@@ -35,7 +34,7 @@ const callDeleteModal = (banner) =>{
         <div className="w-full flex justify-end items-center">
           <div
             onClick={() => setOpenModal(true)}
-            className="flex py-2 px-4 rounded text-white bg-adopsoftdark"
+            className="flex py-2 px-4 rounded bg-adopsoftdark hover:bg-gray-500 transition text-white cursor-pointer"
           >
             <div className="flex items-center">
               <IoMdAddCircleOutline />
@@ -43,14 +42,14 @@ const callDeleteModal = (banner) =>{
             <div>เพิ่ม Banner</div>
           </div>
         </div>
-        <div className="mt-4 p-4 h-full w-full bg-adopsoftdark rounded">
+        <div className="mt-4 p-4 h-full w-full rounded">
           <div className=" ">
             <div className="">
-              <div className="text-white rounded-lg w-full  flex py-5 bg-adopdark">
-                <div className="w-[5%] flex justify-center">Id</div>
-                <div className="flex justify-center w-[50%]">Image</div>
-                <div className="flex justify-center w-[20%]">Route</div>
-                <div className="flex justify-center w-[25%]">Action</div>
+              <div className="text-white rounded-lg w-full  flex py-5 bg-adopsoftdark">
+                <div className="w-[5%] flex justify-center">id</div>
+                <div className="flex justify-center w-[50%]">รูปภาพ</div>
+                <div className="flex justify-center w-[20%]">ลิ้งค์</div>
+                <div className="flex justify-center w-[25%]"></div>
               </div>
             </div>
             {bannerList && bannerList.length > 0 ? (
@@ -58,10 +57,10 @@ const callDeleteModal = (banner) =>{
                 {bannerList.length > 0 &&
                   bannerList.map((banner, index) => (
                     <div
-                      className="flex  items-center text-white w-full bg-adopdark my-1 py-2 rounded-lg px-4"
+                      className="flex  items-center text-gray-800 w-full py-3  border-b-2"
                       key={index}
                     >
-                      <div className="flex w-[5%] justify-center items-center px-6">
+                      <div className="w-[5%] flex justify-center">
                         {banner.id}
                       </div>
                       <div className="w-[50%]">
@@ -72,7 +71,7 @@ const callDeleteModal = (banner) =>{
                         />
                       </div>
                       <div className="w-[20%] justify-center text-center">
-                        RouterPath
+                        {banner.link}
                       </div>
                       <ModalDelete
                         onClose={handleOnCloseModalDelete}
@@ -82,10 +81,10 @@ const callDeleteModal = (banner) =>{
                       />
                       <div className="w-[25%]">
                         <div className="flex justify-center items-center">
-                          <div onClick={() => callDeleteModal(banner)} className="flex items-center bg-red-500 rounded py-2 px-4">
-                            <BsFillTrashFill className="mr-2" />
-                            <div>ลบ</div>
-                          </div>
+                          <BsFillTrashFill
+                            onClick={() => callDeleteModal(banner)}
+                            className="text-white bg-red-600 hover:brightness-75 transition p-2 rounded-full text-4xl cursor-pointer"
+                          ></BsFillTrashFill>
                         </div>
                       </div>
                     </div>
