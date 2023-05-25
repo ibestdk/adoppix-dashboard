@@ -86,6 +86,7 @@ export const AdminManangeItem = ({ admin }) => {
                   id={admin.id}
                   className="sr-only"
                   defaultChecked={isActive}
+                  disabled={isDisableAdminLoading}
                   onChange={(e) => disableAdmin()}
                 />
                 <div className="block bg-gray-600 w-14 h-8 rounded-full"></div>
