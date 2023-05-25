@@ -7,6 +7,7 @@ export const AdminRegister = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [registerStatus, setRegisterStatus] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -26,11 +27,13 @@ export const AdminRegister = () => {
 
   const handleSubmit = async () => {
     setRegisterStatus(false)
+    setIsLoading(true);
     const result = await registerAdmin(email, username, password);
     console.log(result)
     if (result.status === true) {
       setRegisterStatus(true)
     } 
+    setIsLoading(false);
   }
 
   return (
@@ -54,7 +57,9 @@ export const AdminRegister = () => {
           <input type="password" className="p-1 w-1/2 rounded-lg" onChange={handleConfirmPasswordChange} value={confirmPassword}/>
         </div>
         <div className="w-full mb-4 mt-8">
-          <button className="bg-green-500 w-1/2 p-2 text-white font-bold rounded-lg hover:bg-green-600 transition" onClick={handleSubmit}>ลงทะเบียนผู้ดูแล</button>
+          <button 
+          disabled={isLoading}
+          className="bg-green-500 w-1/2 p-2 text-white font-bold rounded-lg hover:bg-green-600 transition disabled:bg-gray-500 disabled:cursor-not-allowed" onClick={handleSubmit}>ลงทะเบียนผู้ดูแล</button>
           {registerStatus && (
             <p className="text-green-600">ลงทะเบียนผู้ดูแลสำเร็จ</p>
           )}
