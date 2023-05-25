@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HiChevronLeft } from 'react-icons/hi';
 import { RiAdminLine } from 'react-icons/ri';
 import { BiLogOut, BiMoneyWithdraw } from 'react-icons/bi';
@@ -7,17 +7,28 @@ import {
   MdOutlineRedeem,
   MdReportGmailerrorred,
 } from 'react-icons/md';
-import { AiFillWechat } from "react-icons/ai";
+import { AiFillWechat } from 'react-icons/ai';
 
 import { BsClipboardData } from 'react-icons/bs';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { logout } from '../../services/authorize';
+import { checkIsSuperAdmin } from '../../services/authorize';
 export const NavBar = () => {
   const navigate = useNavigate();
 
   const [navOpen, setNavOpen] = useState(true);
   const [navSelect, setNavSelect] = useState(0);
   const [navSubOpen, setNavSubOpen] = useState(false);
+  const [isSa, setIsSa] = useState(false);
+
+  useEffect(() => {
+    fetchIsSa();
+  }, []);
+
+  const fetchIsSa = async () => {
+    const result = await checkIsSuperAdmin();
+    setIsSa(result.data);
+  };
 
   const handleOpenNav = () => {
     setNavOpen(!navOpen);
@@ -33,8 +44,6 @@ export const NavBar = () => {
     setTimeout(() => {
       location.reload();
     }, 500);
-
-    console.log('repage');
   };
 
   const handleSelectNav = (id) => {
@@ -90,7 +99,7 @@ export const NavBar = () => {
                 } duration-300 bg-adoppix overflow-hidden`}
               >
                 <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
-                  <NavLink to="banner">Banner</NavLink>
+                  <NavLink to="banner">แบนเนอร์</NavLink>
                 </div>
               </div>
             </div>
@@ -136,30 +145,33 @@ export const NavBar = () => {
                 </div>
               </div>
             </div>
-            <div>
-              <div
-                onClick={() => handleSelectNav(6)}
-                className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
-              >
-                <RiAdminLine className="mx-2 text-xl" />
-                {navOpen && <div className="text-lg">พนักงาน</div>}
-              </div>
+            {isSa && (
+              <div>
+                <div
+                  onClick={() => handleSelectNav(6)}
+                  className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
+                >
+                  <RiAdminLine className="mx-2 text-xl" />
+                  {navOpen && <div className="text-lg">พนักงาน</div>}
+                </div>
 
-              <div
-                className={`${
-                  navSelect === 6 && navSubOpen === true
-                    ? 'h-[88px]'
-                    : ' h-[0px]'
-                } duration-300 bg-adoppix overflow-hidden`}
-              >
-                <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
-                  <NavLink to="admin/management">จัดการผู้ดูแล</NavLink>
-                </div>
-                <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
-                  <NavLink to="admin/register">ลงทะเบียนผู้ดูแล</NavLink>
+                <div
+                  className={`${
+                    navSelect === 6 && navSubOpen === true
+                      ? 'h-[88px]'
+                      : ' h-[0px]'
+                  } duration-300 bg-adoppix overflow-hidden`}
+                >
+                  <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
+                    <NavLink to="admin/management">จัดการผู้ดูแล</NavLink>
+                  </div>
+                  <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
+                    <NavLink to="admin/register">ลงทะเบียนผู้ดูแล</NavLink>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
+
             <div>
               <div
                 onClick={() => handleSelectNav(7)}

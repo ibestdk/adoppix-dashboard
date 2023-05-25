@@ -6,7 +6,7 @@ export const authenicate = (response, next) => {
   if (window !== undefined) {
     //save data to session storage
     localStorage.setItem("tokenbo", response.data.data);
-    console.log("sessionStroage was stored");
+    // console.log("sessionStroage was stored");
     // getUserDataApi(response.data);
   }
   setTimeout(() => {
@@ -24,9 +24,9 @@ export const getUserDataApi = (tokenbo) => {
         axios.defaults.headers.common["Authorization"] = `Bearer ${tokenbo}`;
 
         axios.get(`https://api.adoppix.com/api/User/user-info`).then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           localStorage.setItem("userbo", JSON.stringify(res.data.data));
-          console.log("saved user data");
+          // console.log("saved user data");
         });
       } else {
         axios.defaults.headers.common["Authorization"] = null;
@@ -51,7 +51,7 @@ export const logout = (next) => {
 export const getToken = () => {
   if (window !== undefined) {
     if (localStorage.getItem("tokenbo")) {
-      console.log(localStorage.getItem("tokenbo"))
+      // console.log(localStorage.getItem("tokenbo"))
       return localStorage.getItem("tokenbo");
     } else {
       return false;
@@ -64,10 +64,28 @@ export const getToken = () => {
 export const getUser = () => {
   if (window !== undefined) {
     if (localStorage.getItem("userbo")) {
-      console.log(localStorage.getItem("userbo"));
+      // console.log(localStorage.getItem("userbo"));
       return JSON.parse(localStorage.getItem("userbo"));
     } else {
       return false;
     }
   }
 };
+
+
+export const checkIsSuperAdmin = async () => {
+  const token = getToken();
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    'Access-Control-Allow-Origin': '*',
+  };
+
+  const result = await axios({
+    method: 'get',
+    url: `https://localhost:7179/api/user/check/sa`,
+    headers: headers,
+  }).catch((err) => console.log(err));
+
+  return result.data;
+}
