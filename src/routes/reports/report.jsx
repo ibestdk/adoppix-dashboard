@@ -42,7 +42,7 @@ export const Report = () => {
       </div>
 
       <div>
-        {reports ? (
+        {reports.length < 0 ? (
           reports.length > 0 &&
           reports.map((report, index) => {
             return (
@@ -50,7 +50,9 @@ export const Report = () => {
             );
           })
         ) : (
-          <div>ไม่พบข้อมูล</div>
+          <div className='flex justify-center'>
+            <h1 className='font-bold text-lg'>ไม่พบรายงาน</h1>
+          </div>
         )}
       </div>
     </div>

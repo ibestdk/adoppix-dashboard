@@ -1,8 +1,8 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { replyQa } from '../../services/qa.service';
+import { replyQa, getReplies } from '../../services/qa.service';
 
-export const Reply = ({ qaId, isOpenReply, onCloseReply, replies }) => {
+export const Reply = ({ qaId, isOpenReply, onCloseReply }) => {
   const [open, setOpen] = useState(false);
   const [reply, setReply] = useState([])
   const [messageInput, setMessageInput] = useState('');
@@ -11,18 +11,24 @@ export const Reply = ({ qaId, isOpenReply, onCloseReply, replies }) => {
 
   useEffect(() => {
     setOpen(isOpenReply)
-    setReply(replies);
   }, [isOpenReply])
 
   useEffect(() => {
     if (open === false) {
       onCloseReply();
+    } else {
+      fetchReply();
     }
   }, [open]);
 
   useEffect(() => {
     console.log(messageInput);
   }, [messageInput]);
+
+  const fetchReply = async () => {
+    const result = await getReplies(qaId);
+    setReply(result.data);
+  }
 
   const onReply = async () => {
     setIsLoadingSendMessage(true);
@@ -76,7 +82,7 @@ export const Reply = ({ qaId, isOpenReply, onCloseReply, replies }) => {
                         <hr></hr>
                       </Dialog.Title>
                       <div className="mt-2 h-80 overflow-y-auto">
-                        { reply ? (
+                        { reply.length > 0 ? (
                           reply.map((r, index) => (
                             <div key={index} className='mt-4'>
                               <p className='font-bold text-gray-700'>{r.username}</p>
@@ -85,8 +91,8 @@ export const Reply = ({ qaId, isOpenReply, onCloseReply, replies }) => {
                             </div>
                           ))
                         ) : (
-                          <div>
-
+                          <div className='flex justify-center mt-3'>
+                            <p>ไม่มีการตอบกลับ</p>
                           </div>
                         )}
                       </div>

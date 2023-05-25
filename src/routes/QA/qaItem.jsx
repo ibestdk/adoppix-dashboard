@@ -84,8 +84,7 @@ export const QAItem = ({ qa }) => {
       </div>
       <div className="flex justify-between">
         <p className="text-blue-500 cursor-pointer" onClick={onOpenReply}>ตอบกลับ</p>
-        <Reply qaId={qa.id} isOpenReply={openReply} onCloseReply={onCloseReply} replies={qa.replies}/>
-        <p className="text-red-500">ลบ</p>
+        <Reply qaId={qa.id} isOpenReply={openReply} onCloseReply={onCloseReply}/>
       </div>
     </div>
   );

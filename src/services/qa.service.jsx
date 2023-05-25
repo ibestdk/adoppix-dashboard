@@ -49,3 +49,18 @@ export async function replyQa(id, message) {
 
     return reply.data;
 } 
+
+export async function getReplies(id) {
+    const headers = {
+        Authorization: `Bearer ${token}`,
+        'Access-Control-Allow-Origin': '*',
+    };
+
+    const reply = await axios({
+        method: 'get',
+        url: `https://localhost:7179/api/qa/${id}/reply`,
+        headers: headers,
+    }).catch((err) => console.log(err));
+
+    return reply.data;
+} 
