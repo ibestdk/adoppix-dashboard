@@ -8,6 +8,7 @@ export const Withdraw = () => {
   const fetchRequest = async () => {
     const newRequests = await getWithdrawRequests();
     setRequests(newRequests);
+    console.log(newRequests)
   };
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export const Withdraw = () => {
   return (
     <div className="mx-4 mt-10 w-full">
       <h1 className="font-semibold text-2xl mb-4">จัดการคำขอถอนเงิน</h1>
-      <div className="grid grid-cols-6 bg-adopdark p-2 py-6 mb-5">
+      <div className="grid grid-cols-7 bg-adopdark p-2 py-6 mb-5">
         <div className="">
           <p className="flex-1 text-white font-bold">id</p>
         </div>
@@ -38,6 +39,9 @@ export const Withdraw = () => {
         </div>
         <div className="">
           <p className="flex-1 text-white font-bold">เลขบัญชี</p>
+        </div>
+        <div className="">
+          <p className="flex-1 text-white font-bold">จำนวนเงิน</p>
         </div>
         <div className="">
           <p className="flex-1 text-white font-bold">ชื่อ</p>
@@ -53,7 +57,7 @@ export const Withdraw = () => {
         {requests ? (
           requests.length > 0 &&
           requests.map((request, index) => (
-            <div className="grid grid-cols-6 p-2 py-6 mb-1 border-b-2" key={index}>
+            <div className="grid grid-cols-7 p-2 py-6 mb-1 border-b-2" key={index}>
               <div className="flex items-center">
                 <p className="flex-1 text-gray-600 font-bold ">{request.id}</p>
               </div>
@@ -62,6 +66,9 @@ export const Withdraw = () => {
               </div>
               <div className="flex items-center">
                 <p className="flex-1 text-gray-600 font-bold">{request.number}</p>
+              </div>
+              <div className="flex items-center">
+                <p className="flex-1 text-gray-600 font-bold">{request.amount}</p>
               </div>
               <div className="flex items-center">
                 <p className="flex-1 text-gray-600 font-bold">{request.name}</p>
