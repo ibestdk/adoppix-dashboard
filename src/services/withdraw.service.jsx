@@ -11,7 +11,7 @@ export const getWithdrawRequests = async () => {
 
   const wr = await axios({
     method: 'get',
-    url: 'https://localhost:7179/api/withdraw/request',
+    url: 'https://api.backoffice.adoppix.com/api/withdraw/request',
     headers: headers,
   }).catch((err) => console.log(err));
 
@@ -26,7 +26,7 @@ export const approveWithdraw = async (id) => {
 
   await axios({
     method: 'post',
-    url: `https://localhost:7179/api/withdraw/${id}/accept`,
+    url: `https://api.backoffice.adoppix.com/api/withdraw/${id}/accept`,
     headers: headers,
   }).catch((err) => console.log(err));
 }
@@ -39,7 +39,7 @@ export const rejectWithdraw = async (id) => {
 
   await axios({
     method: 'post',
-    url: `https://localhost:7179/api/withdraw/${id}/reject`,
+    url: `https://api.backoffice.adoppix.com/api/withdraw/${id}/reject`,
     headers: headers,
   }).catch((err) => console.log(err));
 }

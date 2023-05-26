@@ -10,7 +10,7 @@ export async function getAllQA() {
 
     const qas = await axios({
         method: 'get',
-        url: 'https://localhost:7179/api/qa',
+        url: 'https://api.backoffice.adoppix.com/api/qa',
         headers: headers,
     }).catch((err) => console.log(err));
 
@@ -25,7 +25,7 @@ export async function toggleIsShow(id) {
 
     const qas = await axios({
         method: 'post',
-        url: `https://localhost:7179/api/qa/${id}/show-toggle`,
+        url: `https://api.backoffice.adoppix.com/api/qa/${id}/show-toggle`,
         headers: headers,
     }).catch((err) => console.log(err));
 
@@ -40,7 +40,7 @@ export async function replyQa(id, message) {
 
     const reply = await axios({
         method: 'post',
-        url: `https://localhost:7179/api/qa/${id}/reply`,
+        url: `https://api.backoffice.adoppix.com/api/qa/${id}/reply`,
         headers: headers,
         data: {
             message: message
@@ -58,7 +58,7 @@ export async function getReplies(id) {
 
     const reply = await axios({
         method: 'get',
-        url: `https://localhost:7179/api/qa/${id}/reply`,
+        url: `https://api.backoffice.adoppix.com/api/qa/${id}/reply`,
         headers: headers,
     }).catch((err) => console.log(err));
 

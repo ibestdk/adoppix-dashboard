@@ -17,7 +17,7 @@ export const QA = () => {
   }
 
   return (
-    <div className="mx-4 mt-10 w-full">
+    <div className="mx-4 mt-10 w-full text-white">
       <h1 className="font-semibold text-2xl">จัดการถาม - ตอบ</h1>
       <div className="flex flex-wrap p-2 py-6 mb-5">
         { qas ? (

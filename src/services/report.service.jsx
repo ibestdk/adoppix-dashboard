@@ -11,7 +11,7 @@ export const getReports = async () => {
 
   const reports = await axios({
     method: 'GET',
-    url: 'https://localhost:7179/api/report',
+    url: 'https://api.backoffice.adoppix.com/api/report',
     headers: headers
   }).catch((err) => console.log(err));
 
@@ -27,7 +27,7 @@ export const removeSync = async (id) => {
 
   await axios({
     method: 'delete',
-    url: `https://localhost:7179/api/report/${id}/post`,
+    url: `https://api.backoffice.adoppix.com/api/report/${id}/post`,
     headers: headers
   }).catch((err) => console.log(err));
 }
@@ -40,7 +40,7 @@ export const rejectSync = async (id) => {
 
   await axios({
     method: 'delete',
-    url: `https://localhost:7179/api/report/${id}`,
+    url: `https://api.backoffice.adoppix.com/api/report/${id}`,
     headers: headers
   }).catch((err) => console.log(err));
 }

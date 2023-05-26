@@ -29,8 +29,9 @@ export const BannerManager = () => {
     fetchBanner();
   }, []);
   return (
-    <div className="p-5 w-full h-full">
+    <div className="p-5 w-full h-full text-white">
       <div className="h-[90vh] w-[100%]">
+      <div className='text-2xl'>จัดการ Banner</div>
         <div className="w-full flex justify-end items-center">
           <div
             onClick={() => setOpenModal(true)}
@@ -60,7 +61,7 @@ export const BannerManager = () => {
                       className="flex  items-center text-gray-800 w-full py-3  border-b-2"
                       key={index}
                     >
-                      <div className="w-[5%] flex justify-center">
+                      <div className="w-[5%] flex justify-center text-white">
                         {banner.id}
                       </div>
                       <div className="w-[50%]">
@@ -70,7 +71,7 @@ export const BannerManager = () => {
                           alt=""
                         />
                       </div>
-                      <div className="w-[20%] justify-center text-center">
+                      <div className="w-[20%] justify-center text-center text-white">
                         {banner.link}
                       </div>
                       <ModalDelete

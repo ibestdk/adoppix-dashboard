@@ -10,7 +10,7 @@ export const getAdmins = async () => {
 
     const admins = await axios({
         method: 'get',
-        url: 'https://localhost:7179/api/user',
+        url: 'https://api.backoffice.adoppix.com/api/user',
         headers: headers,
     }).catch((err) => console.log(err));
 
@@ -25,7 +25,7 @@ export const disableToggle = async (id) => {
 
     const result = await axios({
         method: 'get',
-        url: `https://localhost:7179/api/user/${id}/disable-toggle`,
+        url: `https://api.backoffice.adoppix.com/api/user/${id}/disable-toggle`,
         headers: headers,
     }).catch((err) => console.log(err));
  
@@ -40,7 +40,7 @@ export const registerAdmin = async (email, username, password) => {
     let result;
     result = await axios({
         method: 'post',
-        url: 'https://localhost:7179/api/user/register-admin',
+        url: 'https://api.backoffice.adoppix.com/api/user/register-admin',
         headers: headers,
         data: {
             email: email,

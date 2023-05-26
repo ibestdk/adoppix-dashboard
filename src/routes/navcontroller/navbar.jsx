@@ -60,7 +60,7 @@ export const NavBar = () => {
       <div
         className={`h-[100vh] ${
           navOpen ? 'w-[240px] ' : 'w-[40px] '
-        } bg-adopdark text-white duration-300 flex flex-col justify-between text-clip`}
+        } bg-adopsoftdark text-white duration-300 flex flex-col justify-between text-clip`}
       >
         <div>
           <div className="flex justify-between mb-5 border-b pb-5">
@@ -85,7 +85,7 @@ export const NavBar = () => {
             <div>
               <div
                 onClick={() => handleSelectNav(2)}
-                className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
+                className=" flex items-center bg-adopsoftdark hover:brightness-110 duration-300 cursor-pointer py-2"
               >
                 <MdOutlinePermMedia className="mx-2 text-xl" />
                 {navOpen && <div className="text-lg">การจัดการสื่อ</div>}
@@ -98,7 +98,7 @@ export const NavBar = () => {
                     : ' h-[0px]'
                 } duration-300 bg-adoppix overflow-hidden`}
               >
-                <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
+                <div className="text-xl pl-14 flex items-center hover:brightness-110  duration-300 cursor-pointer py-2">
                   <NavLink to="banner">แบนเนอร์</NavLink>
                 </div>
               </div>
@@ -106,7 +106,7 @@ export const NavBar = () => {
             <div>
               <div
                 onClick={() => handleSelectNav(4)}
-                className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
+                className=" flex items-center bg-adopsoftdark hover:brightness-110 duration-300 cursor-pointer py-2"
               >
                 <MdReportGmailerrorred className="mx-2 text-xl" />
                 {navOpen && <div className="text-lg">การรายงาน</div>}
@@ -119,7 +119,7 @@ export const NavBar = () => {
                     : ' h-[0px]'
                 } duration-300 bg-adoppix overflow-hidden`}
               >
-                <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
+                <div className="text-xl pl-14 flex items-center hover:brightness-110 duration-300 cursor-pointer py-2">
                   <NavLink to="report">จัดการรายงาน</NavLink>
                 </div>
               </div>
@@ -127,7 +127,7 @@ export const NavBar = () => {
             <div>
               <div
                 onClick={() => handleSelectNav(5)}
-                className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
+                className=" flex items-center bg-adopsoftdark hover:brightness-110 duration-300 cursor-pointer py-2"
               >
                 <BiMoneyWithdraw className="mx-2 text-xl" />
                 {navOpen && <div className="text-lg">คำขอถอนเงิน</div>}
@@ -140,7 +140,7 @@ export const NavBar = () => {
                     : ' h-[0px]'
                 } duration-300 bg-adoppix overflow-hidden`}
               >
-                <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
+                <div className="text-xl pl-14 flex items-center hover:brightness-110 duration-300 cursor-pointer py-2">
                   <NavLink to="withdraw">จัดการคำขอถอนเงิน</NavLink>
                 </div>
               </div>
@@ -149,7 +149,7 @@ export const NavBar = () => {
               <div>
                 <div
                   onClick={() => handleSelectNav(6)}
-                  className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
+                  className=" flex items-center bg-adopsoftdark hover:brightness-110 duration-300 cursor-pointer py-2"
                 >
                   <RiAdminLine className="mx-2 text-xl" />
                   {navOpen && <div className="text-lg">พนักงาน</div>}
@@ -162,10 +162,10 @@ export const NavBar = () => {
                       : ' h-[0px]'
                   } duration-300 bg-adoppix overflow-hidden`}
                 >
-                  <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
+                  <div className="text-xl pl-14 flex items-center hover:brightness-110 duration-300 cursor-pointer py-2">
                     <NavLink to="admin/management">จัดการผู้ดูแล</NavLink>
                   </div>
-                  <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
+                  <div className="text-xl pl-14 flex items-center hover:brightness-110 duration-300 cursor-pointer py-2">
                     <NavLink to="admin/register">ลงทะเบียนผู้ดูแล</NavLink>
                   </div>
                 </div>
@@ -175,7 +175,7 @@ export const NavBar = () => {
             <div>
               <div
                 onClick={() => handleSelectNav(7)}
-                className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
+                className=" flex items-center bg-adopsoftdark hover:brightness-110 duration-300 cursor-pointer py-2"
               >
                 <AiFillWechat className="mx-2 text-xl" />
                 {navOpen && <div className="text-lg">จัดการคำถาม</div>}
@@ -188,7 +188,7 @@ export const NavBar = () => {
                     : ' h-[0px]'
                 } duration-300 bg-adoppix overflow-hidden`}
               >
-                <div className="text-xl pl-14 flex items-center hover:bg-adopsoftdark duration-300 cursor-pointer py-2">
+                <div className="text-xl pl-14 flex items-center hover:brightness-110 duration-300 cursor-pointer py-2">
                   <NavLink to="qa">ถอบ - ตอบ</NavLink>
                 </div>
               </div>
@@ -198,7 +198,7 @@ export const NavBar = () => {
         <div>
           <div
             onClick={() => logout(() => resetRoute())}
-            className=" flex items-center bg-adopdark hover:bg-adopsoftdark duration-300 cursor-pointer py-2"
+            className=" flex items-center bg-adopsoftdark hover:brightness-110 duration-300 cursor-pointer py-2"
           >
             <BiLogOut className="mx-2 text-xl" />
             {navOpen && <div className="text-lg">Logout</div>}

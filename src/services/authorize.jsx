@@ -83,7 +83,7 @@ export const checkIsSuperAdmin = async () => {
 
   const result = await axios({
     method: 'get',
-    url: `https://localhost:7179/api/user/check/sa`,
+    url: `https://api.backoffice.adoppix.com/api/user/check/sa`,
     headers: headers,
   }).catch((err) => console.log(err));
 

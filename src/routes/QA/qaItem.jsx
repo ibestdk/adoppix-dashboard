@@ -42,7 +42,7 @@ export const QAItem = ({ qa }) => {
   }
 
   return (
-    <div className="border-2 p-5 rounded-lg w-1/5 mr-2 mt-2 bg-white">
+    <div className=" p-5 rounded-lg w-1/5 mr-2 mt-2 bg-adopsoftdark shadow-lg">
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center">
           <img className="w-2/12 rounded-full" src={profileImage} />
@@ -78,7 +78,7 @@ export const QAItem = ({ qa }) => {
           </div>
         )}
       </div>
-      <div className="h-60 overflow-y-auto">
+      <div className="h-20 overflow-y-auto">
         <h1 className="font-bold">{qa.title}</h1>
         <p className="mb-3">{qa.description}</p>
       </div>
