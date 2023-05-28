@@ -7,6 +7,7 @@ export const Report = () => {
 
   const fetchReport = async () => {
     const reports = await getReports();
+    console.log(reports)
     setReports(reports);
   };
 
@@ -42,7 +43,7 @@ export const Report = () => {
       </div>
 
       <div>
-        {reports.length < 0 ? (
+        {reports.length > 0 ? (
           reports.length > 0 &&
           reports.map((report, index) => {
             return (
