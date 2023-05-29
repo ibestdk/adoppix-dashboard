@@ -1,11 +1,33 @@
 import { useEffect } from 'react';
 import { getSummary } from '../../services/summary.service';
 import { useState } from 'react';
+import Dropdown from './dropdown';
 
 export const SummaryData = () => {
   const [summary, setSummary] = useState({});
   const [month, setMonth] = useState(null);
   const [year, setYear] = useState(null);
+
+  const months = [
+    { data: null, name: 'ทั้งหมด' },
+    { data: 1, name: '1' },
+    { data: 2, name: '2' },
+    { data: 3, name: '3' },
+    { data: 4, name: '4' },
+    { data: 5, name: '5' },
+    { data: 6, name: '6' },
+    { data: 7, name: '7' },
+    { data: 8, name: '8' },
+    { data: 9, name: '9' },
+    { data: 10, name: '10' },
+    { data: 11, name: '11' },
+    { data: 12, name: '12' },
+  ];
+
+  const years = [
+    { data: null, name: 'ทั้งหมด' },
+    { data: 2023, name: '2023' },
+  ];
 
   useEffect(() => {
     fetchSummary();
@@ -39,25 +61,15 @@ export const SummaryData = () => {
 
   return (
     <div className="w-full">
-      <div className="w-2/5">
+      <div className="w-1/5">
         <div className="m-3 flex items-end justify-between">
           <div>
             <label className="block text-white font-bold">เดือน</label>
-            <input
-              className="p-1 bg-adopsoftdark text-white"
-              type="number"
-              value={month === null ? '' : month}
-              onChange={(e) => handleMonthInpunt(e.target.value)}
-            />
+            <Dropdown datas={months} onSelected={handleMonthInpunt} />
           </div>
           <div>
             <label className="block text-white font-bold">ปี</label>
-            <input
-              className="p-1 bg-adopsoftdark text-white"
-              type="number"
-              value={year === null ? '' : month}
-              onChange={(e) => handleYearInpunt(e.target.value)}
-            />
+            <Dropdown datas={years} onSelected={handleYearInpunt} />
           </div>
           <button
             className="p-2 rounded-lg bg-blue-600 text-white h-10"
@@ -91,27 +103,24 @@ export const SummaryData = () => {
             </div>
           </div>
           <div className="text-white flex justify-between w-full mt-10 ml-3">
-          <div className='flex-1 p-1'>
-          <div className="bg-green-600 p-6 rounded-lg">
-              <p>รายรับทั้งหมด</p>
-              <p className="font-bold text-3xl">{summary.incomeTotal}</p>
+            <div className="flex-1 p-1">
+              <div className="bg-green-600 p-6 rounded-lg">
+                <p>รายรับทั้งหมด</p>
+                <p className="font-bold text-3xl">{summary.incomeTotal}</p>
+              </div>
             </div>
-          </div>
-          <div className='flex-1 p-1'>
-          <div className="bg-green-500 p-6 rounded-lg">
-              <p>รายรับจากการประมูล</p>
-              <p className="font-bold text-3xl">{summary.incomeAuction}</p>
+            <div className="flex-1 p-1">
+              <div className="bg-green-500 p-6 rounded-lg">
+                <p>รายรับจากการประมูล</p>
+                <p className="font-bold text-3xl">{summary.incomeAuction}</p>
+              </div>
             </div>
+            <div className="flex-1 p-1">
+              <div className="bg-green-500 p-6 rounded-lg">
+                <p>รายรับจากการขายสินค้า</p>
+                <p className="font-bold text-3xl">{summary.incomeProduct}</p>
+              </div>
             </div>
-            <div className='flex-1 p-1'>
-            <div className="bg-green-500 p-6 rounded-lg">
-              <p>รายรับจากการขายสินค้า</p>
-              <p className="font-bold text-3xl">{summary.incomeProduct}</p>
-            </div>
-            </div>
-            
-            
-            
           </div>
         </div>
         <div className="w-1/3">
