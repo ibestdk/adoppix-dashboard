@@ -8,13 +8,13 @@ export const getSummary = async (month, year) => {
     'Access-Control-Allow-Origin': '*',
   };
 
-  let urlAPI = 'https://localhost:7179/api/dashboard/summary?';
-  if (month !== null) urlAPI += `month=${month}`;
-  if (year !== null) urlAPI += `year=${year}`;
-
+  let urlAPI = 'https://api.backoffice.adoppix.com/api/dashboard/summary';
+  if (month !== null) urlAPI += `?month=${month}`;
+  if (year !== null) urlAPI += `&year=${year}`;
+  console.log(urlAPI)
   const wr = await axios({
     method: 'get',
-    url: 'https://localhost:7179/api/dashboard/summary',
+    url: urlAPI,
     headers: headers,
   }).catch((err) => console.log(err));
 
