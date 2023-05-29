@@ -46,7 +46,7 @@ export const SummaryData = () => {
             <input
               className="p-1 bg-adopsoftdark text-white"
               type="number"
-              value={(month === null) ? '' : month}
+              value={month === null ? '' : month}
               onChange={(e) => handleMonthInpunt(e.target.value)}
             />
           </div>
@@ -55,7 +55,7 @@ export const SummaryData = () => {
             <input
               className="p-1 bg-adopsoftdark text-white"
               type="number"
-              value={(year === null) ? '' : month}
+              value={year === null ? '' : month}
               onChange={(e) => handleYearInpunt(e.target.value)}
             />
           </div>
@@ -70,37 +70,56 @@ export const SummaryData = () => {
       <div className="w-full flex justify-around">
         <div className="w-1/2">
           <div className="text-white flex justify-between w-full mt-10 ml-3">
-            <div className="bg-orange-400 p-6 rounded-lg">
-              <p>จำนานเงินทั้งหมด</p>
-              <p className="font-bold text-3xl">{summary.total}</p>
+            <div className="flex-1 p-1">
+              <div className="bg-orange-400 p-6 rounded-lg h-full">
+                <p>จำนานเงินทั้งหมด</p>
+                <p className="font-bold text-3xl">{summary.total}</p>
+              </div>
             </div>
-            <div className="bg-gray-600 p-6 rounded-lg">
-              <p>จำนวนเงินจากการประมูล</p>
-              <p className="font-bold text-3xl">{summary.auctionTotal}</p>
+
+            <div className="flex-1 p-1">
+              <div className="bg-gray-600 p-6 rounded-lg">
+                <p>จำนวนเงินจากการประมูล</p>
+                <p className="font-bold text-3xl">{summary.auctionTotal}</p>
+              </div>
             </div>
-            <div className="bg-gray-600 p-6 rounded-lg">
-              <p>จำนวนเงินจากการขายสินค้า</p>
-              <p className="font-bold text-3xl">{summary.productTotal}</p>
+            <div className="flex-1 p-1">
+              <div className="bg-gray-600 p-6 rounded-lg">
+                <p>จำนวนเงินจากการขายสินค้า</p>
+                <p className="font-bold text-3xl">{summary.productTotal}</p>
+              </div>
             </div>
           </div>
           <div className="text-white flex justify-between w-full mt-10 ml-3">
-            <div className="bg-green-600 p-6 rounded-lg">
+          <div className='flex-1 p-1'>
+          <div className="bg-green-600 p-6 rounded-lg">
               <p>รายรับทั้งหมด</p>
               <p className="font-bold text-3xl">{summary.incomeTotal}</p>
             </div>
-            <div className="bg-green-500 p-6 rounded-lg">
+          </div>
+          <div className='flex-1 p-1'>
+          <div className="bg-green-500 p-6 rounded-lg">
               <p>รายรับจากการประมูล</p>
               <p className="font-bold text-3xl">{summary.incomeAuction}</p>
             </div>
+            </div>
+            <div className='flex-1 p-1'>
             <div className="bg-green-500 p-6 rounded-lg">
               <p>รายรับจากการขายสินค้า</p>
               <p className="font-bold text-3xl">{summary.incomeProduct}</p>
             </div>
+            </div>
+            
+            
+            
           </div>
         </div>
         <div className="w-1/3">
           <div className="h-[300px] overflow-y-auto mt-10">
-            <p className="text-white font-bold">Auction income logs ({summary.incomeAuctions && (summary.incomeAuctions.length)})</p>
+            <p className="text-white font-bold">
+              Auction income logs (
+              {summary.incomeAuctions && summary.incomeAuctions.length})
+            </p>
             <table className="text-white w-full">
               <tr>
                 <th>จำนวน</th>
@@ -128,7 +147,10 @@ export const SummaryData = () => {
             </table>
           </div>
           <div className="h-[300px] overflow-y-auto mt-10">
-            <p className="text-white font-bold">Product income logs ({summary.incomeProducts && (summary.incomeProducts.length)})</p>
+            <p className="text-white font-bold">
+              Product income logs (
+              {summary.incomeProducts && summary.incomeProducts.length})
+            </p>
             <table className="text-white w-full">
               <tr>
                 <th>จำนวน</th>
