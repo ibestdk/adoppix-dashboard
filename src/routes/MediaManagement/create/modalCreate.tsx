@@ -3,7 +3,7 @@ import { AiFillCamera, AiOutlineCloseCircle } from 'react-icons/ai';
 import { uploadBannner } from '../../../services/banner.service';
 import React, { useState, useEffect, useRef } from 'react';
 
-export default function ModalAdd({ visible, onClose }) {
+export default function ModalAdd({ visible, onClose ,reload }) {
   const [selectedImage, setSelectedImage] = useState(null);
   const [redirectUrl, setRedirectUrl] = useState<any>('');
 
@@ -34,6 +34,8 @@ export default function ModalAdd({ visible, onClose }) {
     console.log(redirectUrl)
     console.log(selectedImage)
     await uploadBannner(selectedImage, redirectUrl);
+    reload();
+    onClose();
   };
 
   if (!visible) return null;

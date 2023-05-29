@@ -32,7 +32,7 @@ export const Login = () => {
         config
       );
       if (response.status) {
-        authenicate(response, () => navigate('/'));
+        authenicate(response, () => {navigate('/');  window.location.reload();});
       }
     } catch (error) {
       console.error(error);

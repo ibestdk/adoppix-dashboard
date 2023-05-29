@@ -97,7 +97,7 @@ export const BannerManager = () => {
           </div>
         </div>
       </div>
-      <ModalAdd onClose={handleOnClose} visible={modalOpen} />
+      <ModalAdd onClose={handleOnClose} visible={modalOpen} reload={fetchBanner} />
     </div>
   );
 };
