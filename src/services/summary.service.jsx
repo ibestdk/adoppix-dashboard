@@ -11,7 +11,7 @@ export const getSummary = async (month, year) => {
   let urlAPI = 'https://api.backoffice.adoppix.com/api/dashboard/summary';
   if (month !== null) urlAPI += `?month=${month}`;
   if (year !== null) urlAPI += `&year=${year}`;
-  console.log(urlAPI)
+
   const wr = await axios({
     method: 'get',
     url: urlAPI,
