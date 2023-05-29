@@ -39,19 +39,11 @@ export const SummaryData = () => {
   };
 
   const handleMonthInpunt = (number) => {
-    if (number.length === 0) {
-      setMonth(null);
-    } else {
-      setMonth(number);
-    }
+    isetMonth(number);
   };
 
   const handleYearInpunt = (number) => {
-    if (number.length === 0) {
-      setYear(null);
-    } else {
-      setYear(number);
-    }
+    setYear(number);
   };
 
   const handleSubmit = async () => {
