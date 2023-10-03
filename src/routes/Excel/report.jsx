@@ -24,7 +24,7 @@ export const Report = () => {
     <div className="mx-4 mt-10 w-full text-white">
       <h1 className="font-semibold text-2xl mb-2">จัดการรายงาน</h1>
       {/* Header */}
-      <div className="grid grid-cols-5 bg-adopsoftdark p-2 py-6 mb-5 rounded-lg">
+      <div className="grid grid-cols-5 bg-adopsoftdark  p-2 py-6 mb-5 rounded-lg">
         <div className="">
           <p className="flex-1 text-white font-bold">id</p>
         </div>

@@ -1,0 +1,170 @@
+{
+    "blogTitle": "title",
+    "description": "description",
+    "url": "url",
+    "author": "author",
+    "image": "image",
+    "created": "created",
+    "updated": "updated",
+    "data": {
+      "layout": [
+        {
+          "index": 0,
+          "position": "left",
+          "col": 1,
+          "box": [
+            {
+              "index": 0,
+              "type": 0,
+              "position": "left",
+              "content": {
+                "value": "'Digital.jar' was blocked from use because it is not from an identified developer."
+              }
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "position": "center",
+          "col": 2,
+          "box": [
+            {
+              "index": 0,
+              "type": 0,
+              "position": "center",
+              "content": {
+                "value": "content 1"
+              }
+            },
+            {
+              "index": 1,
+              "type": 0,
+              "position": "center",
+              "content": {
+                "value": "content 2"
+              }
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "position": "center",
+          "col": 3,
+          "box": [
+            {
+              "index": 0,
+              "type": 0,
+              "position": "center",
+              "content": {
+                "value": "content 3"
+              }
+            },
+            {
+              "index": 1,
+              "type": 0,
+              "position": "center",
+              "content": {
+                "value": "content 4" 
+              }
+            },
+            {
+              "index": 2,
+              "type": 0,
+              "position": "center",
+              "content": {
+                "value": "content 5"
+              }
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "position": "left",
+          "col": 1,
+          "box": [
+            {
+              "index": 0,
+              "type": 1,
+              "position": "center",
+              "content": {
+                "width": "20%",
+                "height": "20%",
+                "image": "https://cdn.discordapp.com/attachments/681151360305201169/1151023008215994498/Commission-V2.png"
+              }
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "position": "center",
+          "col": 1,
+          "box": [
+            {
+              "index": 0,
+              "type": 2,
+              "position": "center",
+              "content": {
+                "width": "20%",
+                "height": "20%",
+                "code": "<p>This is some <strong>HTML</strong> content.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "position": "center",
+          "col": 1,
+          "box": [
+            {
+              "index": 0,
+              "type": 2,
+              "position": "center",
+              "content": {
+                "width": "20%",
+                "height": "20%",
+                "code": "<main className=\"flex min-h-screen flex-col items-center justify-between p-24\"><Editor/></main>"
+              }
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "position": "center",
+          "col": 1,
+          "box": [
+            {
+              "index": 0,
+              "type": 2,
+              "position": "left",
+              "content": {
+                "lang" : "html",
+                "width": "20%",
+                "height": "20%",
+                "code": "<html lang=\"en\">\n      <body className=\"${inter.className} w-screen h-screen\">\n        <NavBar />\n        <div className=\"min-h-[calc(100vh-80px)] max-w-full\">{children}</div>\n      </body>\n</html>"
+              }
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "position": "center",
+          "col": 1,
+          "box": [
+            {
+              "index": 0,
+              "type": 2,
+              "position": "left",
+              "content": {
+                "lang": "html",
+                "width": "20%",
+                "height": "20%",
+                "code": "<html lang=\"en\">\n      <body className=\"${inter.className} w-screen h-screen\">\n        <NavBar />\n        <div className=\"min-h-[calc(100vh-80px)] max-w-full\">{children}</div>\n      </body>\n</html>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+  

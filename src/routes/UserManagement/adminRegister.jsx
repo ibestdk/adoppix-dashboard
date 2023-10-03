@@ -38,14 +38,14 @@ export const AdminRegister = () => {
 
   return (
     <div className="mx-4 mt-10 w-full flex justify-center items-center">
-      <div className="w-[400px] bg-adopsoftdark rounded-lg p-5 text-white">
+      <div className="w-[400px] bg-adopsoftdark  rounded-lg p-5 text-white">
         <h1 className="font-semibold text-2xl mb-4">ลงทะเบียนผู้ดูแล</h1>
         <div className="w-full">
           <div className="w-full mb-4">
             <p className="mb-1">อีเมล</p>
             <input
               type="email"
-              className="p-1 w-full bg-adopdark rounded-lg"
+              className="p-1 w-full bg-white rounded-lg"
               onChange={handleEmailChange}
               value={email}
             />
@@ -54,7 +54,7 @@ export const AdminRegister = () => {
             <p className="mb-1">ชื่อผู้ใช้</p>
             <input
               type="text"
-              className="p-1 w-full bg-adopdark rounded-lg"
+              className="p-1 w-full bg-white rounded-lg"
               onChange={handleUsernameChange}
               value={username}
             />
@@ -63,7 +63,7 @@ export const AdminRegister = () => {
             <p className="mb-1">รหัสผ่าน</p>
             <input
               type="password"
-              className="p-1 w-full bg-adopdark rounded-lg"
+              className="p-1 w-full bg-white rounded-lg"
               onChange={handlePasswordChange}
               value={password}
             />
@@ -72,7 +72,7 @@ export const AdminRegister = () => {
             <p className="mb-1">ยืนยันรหัสผ่าน</p>
             <input
               type="password"
-              className="p-1 w-full bg-adopdark rounded-lg"
+              className="p-1 w-full bg-white rounded-lg"
               onChange={handleConfirmPasswordChange}
               value={confirmPassword}
             />
@@ -80,7 +80,7 @@ export const AdminRegister = () => {
           <div className="w-full mb-4 mt-8">
             <button
               disabled={isLoading}
-              className="bg-green-500 w-full bg-adopdark p-2 text-white font-bold rounded-lg hover:bg-green-600 transition disabled:bg-gray-500 disabled:cursor-not-allowed"
+              className="bg-green-500 w-full bg-white p-2 text-white font-bold rounded-lg hover:bg-green-600 transition disabled:bg-gray-500 disabled:cursor-not-allowed"
               onClick={handleSubmit}
             >
               ลงทะเบียนผู้ดูแล

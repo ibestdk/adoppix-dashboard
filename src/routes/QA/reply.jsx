@@ -73,8 +73,8 @@ export const Reply = ({ qaId, isOpenReply, onCloseReply }) => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-adopsoftdark text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                <div className="bg-adopsoftdark px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-adopsoftdark  text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div className="bg-adopsoftdark  px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                   <div className="sm:flex sm:items-start">
                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
                       <Dialog.Title
@@ -110,7 +110,7 @@ export const Reply = ({ qaId, isOpenReply, onCloseReply }) => {
                       <div className="relative mt-5 overflow-hidden w-full">
                         <input
                           type="text"
-                          className="p-1 rounded-lg w-full border-adopsoftdark focus:border-adopsoftdark focus:outline-none outline-none py-2 disabled:bg-gray-300 text-white bg-adopdark"
+                          className="p-1 rounded-lg w-full border-adopsoftdark focus:border-adopsoftdark focus:outline-none outline-none py-2 disabled:bg-gray-300 text-white bg-white"
                           value={messageInput}
                           onChange={(e) => setMessageInput(e.target.value)}
                           disabled={isLoadingSendMessage}
@@ -126,7 +126,7 @@ export const Reply = ({ qaId, isOpenReply, onCloseReply }) => {
                     </div>
                   </div>
                 </div>
-                <div className="bg-adopsoftdark px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                <div className="bg-adopsoftdark  px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                   <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"

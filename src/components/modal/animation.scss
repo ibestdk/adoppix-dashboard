@@ -1,0 +1,74 @@
+.animation-custom{
+  animation: fade-in-out .2s ease-in-out forwards;
+  -webkit-animation: fade-in-out .2s ease-in-out forwards;
+  -moz-animation: fade-in-out .2s ease-in-out forwards;
+  -o-animation: fade-in-out .2s ease-in-out forwards;
+  // animation-name: fade-in;
+  // animation-duration: .2s;
+  // animation-timing-function: linear ;
+  // -webkit-animation-timing-function: ease-in-out;
+}
+
+
+@keyframes fade-in-out{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+
+}
+
+
+@-moz-keyframes fade-in-out {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+@-webkit-keyframes fade-in-out {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+@-o-keyframes fade-in-out {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+
+.slide-fade-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.slide-fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.slide-fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-fade-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}

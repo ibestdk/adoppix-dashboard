@@ -132,7 +132,7 @@ export const SummaryData = () => {
                   <tr
                     key={index}
                     className={`${
-                      index % 2 ? 'bg-adopsoftdark' : 'bg-adopdark'
+                      index % 2 ? 'bg-adopsoftdark ' : 'bg-white'
                     }`}
                   >
                     <td>{data.total}</td>
@@ -163,7 +163,7 @@ export const SummaryData = () => {
                   <tr
                     key={index}
                     className={`${
-                      index % 2 ? 'bg-adopsoftdark' : 'bg-adopdark'
+                      index % 2 ? 'bg-adopsoftdark ' : 'bg-white'
                     }`}
                   >
                     <td>{data.total}</td>

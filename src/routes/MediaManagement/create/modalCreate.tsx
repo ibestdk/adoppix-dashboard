@@ -1,5 +1,6 @@
 import './modalCreate.scss';
 import { AiFillCamera, AiOutlineCloseCircle } from 'react-icons/ai';
+
 import { uploadBannner } from '../../../services/banner.service';
 import React, { useState, useEffect, useRef } from 'react';
 
@@ -45,7 +46,7 @@ export default function ModalAdd({ visible, onClose ,reload }) {
       onClick={handleOnClose}
       className="animation-custom fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center duration-300 text-white"
     >
-      <div className="bg-adopsoftdark w-[800px] p-4 rounded-lg animate-[wiggle_1s_ease-in-out_infinite]">
+      <div className="bg-adopsoftdark  w-[800px] p-4 rounded-lg animate-[wiggle_1s_ease-in-out_infinite]">
         {/* Modal content */}
         <div className="py-2">
           <h2 className="text-white text-xl p-2 text-center">
@@ -78,7 +79,7 @@ export default function ModalAdd({ visible, onClose ,reload }) {
               <input
                 type="text"
                 id="RedirectUrl"
-                className="bg-adopdark rounded-lg focus:outline-none outline-0 border-0"
+                className="bg-white rounded-lg focus:outline-none outline-0 border-0"
                 onChange={(e) => setRedirectUrl(e.target.value)}
               />
             </div>
@@ -110,7 +111,7 @@ export default function ModalAdd({ visible, onClose ,reload }) {
         <div id="footer" className="flex mt-2 relative min-h-[40px]">
           <div className="absolute right-0">
             <button
-              className="mx-2 bg-adoplighticon py-2 px-4 rounded-lg"
+              className="mx-2 bg-adopsoftdark icon py-2 px-4 rounded-lg"
               onClick={onClose}
             >
               ยกเลิก

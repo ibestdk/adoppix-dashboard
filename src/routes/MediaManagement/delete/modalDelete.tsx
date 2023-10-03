@@ -26,7 +26,7 @@ export default function ModalDelete({ visible, onClose, banner, reset }) {
       onClick={handleOnClose}
       className="animation-custom fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center duration-300"
     >
-      <div className=" bg-adopsoftdark   w-[400px] p-4 rounded-lg animate-[wiggle_1s_ease-in-out_infinite]">
+      <div className=" bg-adopsoftdark    w-[400px] p-4 rounded-lg animate-[wiggle_1s_ease-in-out_infinite]">
         <div className="py-2 ">
           <h2 className="text-white text-xl p-2 text-center">
             ต้องการลบ Banner id {banner.id}
@@ -47,7 +47,7 @@ export default function ModalDelete({ visible, onClose, banner, reset }) {
         <div id="footer" className="flex mt-2 relative min-h-[40px]">
           <div className="absolute right-0">
             <button
-              className="mx-2 bg-adoplighticon py-2 px-4 rounded-lg"
+              className="mx-2 bg-adopsoftdark icon py-2 px-4 rounded-lg"
               onClick={onClose}
             >
               ยกเลิก

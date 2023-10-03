@@ -3,20 +3,15 @@ import { disableToggle } from '../../services/admin.service';
 import { useEffect, useState } from 'react';
 import './adminManageItem.css';
 
-export const AdminManangeItem = ({ admin }) => {
+export const AdminManangeItem = ({ admin , index }) => {
   const [isActive, setIsActive] = useState(admin.isActive);
-  const [isActiveClass, setIsActiveClass] = useState('');
   const [isDisableAdminLoading, setIsDisableAdminLoading] = useState(false);
 
   const roleNameClass =
     admin.roleName === 'super admin' ? 'text-yellow-400' : 'text-blue-600';
-  const combindRoleNameClass = `flex-1 font-bold ${roleNameClass}`;
 
   useEffect(() => {
-    const statusClass = isActive ? 'text-green-600' : 'text-red-600';
-    const combindStatusClass = `flex-1 text-gray-600 font-bold ${statusClass}`;
-
-    setIsActiveClass(combindStatusClass);
+    setIsDisableAdminLoading(false);
   }, [isActive]);
 
   const disableAdmin = async () => {
@@ -25,24 +20,23 @@ export const AdminManangeItem = ({ admin }) => {
     if (lastStatusAdmin.status) {
       setIsActive(lastStatusAdmin.data);
     }
-    setIsDisableAdminLoading(false);
   };
 
   return (
-    <div className="grid grid-cols-7 p-2 py-6 mb-1 border-b-2">
-      <div className="flex items-center">
+    <div className={`${index % 2 === 0 ? "bg-white" : "bg-adoplight "} flex justify-between items-center space-x-3 p-2 py-6  border-b-2`}>
+      <div className="flex w-1/12 items-center">
         <p className="flex-1 text-gray-600 font-bold ">{admin.id}</p>
       </div>
-      <div className="flex items-center">
+      <div className="flex w-2/12 items-center">
         <p className="flex-1 text-gray-600 font-bold">{admin.email}</p>
       </div>
-      <div className="flex items-center">
+      <div className="flex w-2/12 items-center">
         <p className="flex-1 text-gray-600 font-bold">{admin.username}</p>
       </div>
-      <div className="flex items-center">
+      <div className="flex w-1/12 items-center">
         {isDisableAdminLoading ? (
           <svg
-          className="animate-spin w-[25px] text-gray-700"
+            className="animate-spin w-5 h-5 text-gray-700"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -62,34 +56,42 @@ export const AdminManangeItem = ({ admin }) => {
             ></path>
           </svg>
         ) : (
-          <p className={isActiveClass}>
+          <p
+            className={`text-center font-bold ${
+              isActive ? 'text-green-600' : 'text-red-600'
+            }`}
+          >
             {isActive ? 'เปิดการใช้งาน' : 'ปิดการใช้งาน'}
           </p>
         )}
       </div>
-      <div className="flex items-center">
-        <p className={combindRoleNameClass}>{admin.roleName}</p>
+      <div className="flex w-1/12 items-center text-center">
+        <p className={`flex-1 ${roleNameClass} font-bold`}>{admin.roleName}</p>
       </div>
-      <div className="flex items-center">
+      <div className="flex w-2/12 items-center">
         <p className="flex-1 text-gray-600 font-bold">{admin.createdAt}</p>
       </div>
-      <div className="flex items-center">
-        <div className="flex justify-between w-2/4">
-          <div class="flex items-center justify-center">
+      <div className="flex w-3/12 items-center">
+        <div className="flex relative justify-between w-2/4">
+          <div className="flex items-center justify-center">
             <label
               htmlFor={admin.id}
               className="flex items-center cursor-pointer"
             >
-              <div className="relative">
+              <div className="relative z-0">
                 <input
                   type="checkbox"
                   id={admin.id}
                   className="sr-only"
                   defaultChecked={isActive}
                   disabled={isDisableAdminLoading}
-                  onChange={(e) => disableAdmin()}
+                  onChange={disableAdmin}
                 />
-                <div className="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                <div
+                  className={`block w-14 h-8 rounded-full duration-300 ${
+                    isActive ? 'bg-green-400' : 'bg-gray-300'
+                  }`}
+                ></div>
                 <div className="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
               </div>
             </label>

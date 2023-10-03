@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { HiChevronLeft } from 'react-icons/hi';
+import { HiChevronLeft, HiChevronUp } from 'react-icons/hi';
 import { RiAdminLine } from 'react-icons/ri';
+import { FaBloggerB } from 'react-icons/fa';
 import { BiLogOut, BiMoneyWithdraw } from 'react-icons/bi';
 import {
   MdOutlinePermMedia,
@@ -8,16 +9,18 @@ import {
   MdReportGmailerrorred,
 } from 'react-icons/md';
 import { AiFillWechat } from 'react-icons/ai';
-
-import { BsClipboardData } from 'react-icons/bs';
+import { RiFileExcel2Fill } from 'react-icons/ri';
+import { FaDocker } from 'react-icons/fa';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { logout } from '../../services/authorize';
 import { checkIsSuperAdmin } from '../../services/authorize';
-export const NavBar = () => {
+export const NavBar = ({navOpen , setNavOpen}) => {
   const navigate = useNavigate();
 
-  const [navOpen, setNavOpen] = useState(true);
+  // const [navOpen, setNavOpen] = useState(true);
   const [navSelect, setNavSelect] = useState(0);
+  const [menuSelect, setMenuSelect] = useState('main');
+
   const [navSubOpen, setNavSubOpen] = useState(false);
   const [isSa, setIsSa] = useState(false);
 
@@ -56,17 +59,17 @@ export const NavBar = () => {
     }
   };
   return (
-    <div>
+    <div className="fixed">
       <div
         className={`h-[100vh] ${
           navOpen ? 'w-[240px] ' : 'w-[40px] '
-        } bg-adopsoftdark text-white duration-300 flex flex-col justify-between text-clip`}
+        } bg-[#292e40]  text-white duration-300 flex flex-col justify-between text-clip`}
       >
         <div>
-          <div className="flex justify-between mb-5 border-b pb-5">
+          <div className="flex justify-between mb-5  pb-5">
             {navOpen && (
               <div className="flex flex-col text-center justify-center w-full mt-5">
-                <div className="text-2xl font-bold">AdopPix</div>
+                <div className="text-2xl font-bold">TA Service</div>
                 <div className="text-2xl font-semibold text-white">
                   DashBoard
                 </div>
@@ -82,128 +85,184 @@ export const NavBar = () => {
             </div>
           </div>
           <div>
+        
             <div>
               <div
                 onClick={() => handleSelectNav(2)}
-                className=" flex items-center bg-adopsoftdark hover:brightness-110 duration-300 cursor-pointer py-2"
+                className={`${navSelect === 2 ? "brightness-90" : ""} flex items-center justify-between bg-pink-500  hover:brightness-110 duration-300 cursor-pointer py-2`}
               >
-                <MdOutlinePermMedia className="mx-2 text-xl" />
-                {navOpen && <div className="text-lg">การจัดการสื่อ</div>}
-              </div>
-
-              <div
-                className={`${
-                  navSelect === 2 && navSubOpen === true
-                    ? 'h-[44px]'
-                    : ' h-[0px]'
-                } duration-300 bg-adoppix overflow-hidden`}
-              >
-                <div className="text-xl pl-14 flex items-center hover:brightness-110  duration-300 cursor-pointer py-2">
-                  <NavLink to="banner">แบนเนอร์</NavLink>
+                <div className='flex items-center'>
+                <FaDocker className="mx-2 text-2xl" />
+                  {navOpen && <div className="text-lg">Docker</div>}
                 </div>
+                <HiChevronUp
+                  className={`${
+                    navSelect === 2 ? "" : 'rotate-180'
+                  }  duration-300 text-[2rem]`}
+                />
+              </div>
+              <div className=" shadow-inner">
+                <DropDownMenu
+                  submenu={'e0'}
+                  navId={2}
+                  navSelect={navSelect}
+                  menuSelect={menuSelect}
+                  navSubOpen={navSubOpen}
+                  textMenu={'รายงานผล'}
+                  setMenuSelect={setMenuSelect}
+                  route={'docker'}
+                />
+          
+                <DropDownMenu
+                  submenu={'e2'}
+                  navId={2}
+                  navSelect={navSelect}
+                  menuSelect={menuSelect}
+                  navSubOpen={navSubOpen}
+                  textMenu={'อัพโหลดข้อสอบ'}
+                  setMenuSelect={setMenuSelect}
+                  route={'upload-docker-answer'}
+                />
               </div>
             </div>
             <div>
               <div
                 onClick={() => handleSelectNav(4)}
-                className=" flex items-center bg-adopsoftdark hover:brightness-110 duration-300 cursor-pointer py-2"
+                className={`${navSelect === 4 ? "brightness-90" : ""} flex items-center justify-between bg-pink-500  hover:brightness-110 duration-300 cursor-pointer py-2`}
               >
-                <MdReportGmailerrorred className="mx-2 text-xl" />
-                {navOpen && <div className="text-lg">การรายงาน</div>}
-              </div>
-
-              <div
-                className={`${
-                  navSelect === 4 && navSubOpen === true
-                    ? 'h-[44px]'
-                    : ' h-[0px]'
-                } duration-300 bg-adoppix overflow-hidden`}
-              >
-                <div className="text-xl pl-14 flex items-center hover:brightness-110 duration-300 cursor-pointer py-2">
-                  <NavLink to="report">จัดการรายงาน</NavLink>
+                <div className='flex items-center'>
+                  <RiFileExcel2Fill className="mx-2 text-xl" />
+                  {navOpen && <div className="text-lg">Excel</div>}
                 </div>
+                <HiChevronUp
+                  className={`${
+                    navSelect === 4 ? "" : 'rotate-180'
+                  }  duration-300 text-[2rem]`}
+                />
+              </div>
+              <div className=" shadow-inner">
+                <DropDownMenu
+                  submenu={'e0'}
+                  navId={4}
+                  navSelect={navSelect}
+                  menuSelect={menuSelect}
+                  navSubOpen={navSubOpen}
+                  textMenu={'รายงานผล'}
+                  setMenuSelect={setMenuSelect}
+                  route={'excel'}
+                />
+
+                <DropDownMenu
+                  submenu={'e2'}
+                  navId={4}
+                  navSelect={navSelect}
+                  menuSelect={menuSelect}
+                  navSubOpen={navSubOpen}
+                  textMenu={'ชุดคำตอบ'}
+                  setMenuSelect={setMenuSelect}
+                  route={'upload-teacher-answer'}
+                />
+              </div>
+            </div>
+            <div>
+              <div
+                onClick={() => handleSelectNav(3)}
+                className={`${navSelect === 3 ? "brightness-90" : ""} flex items-center justify-between bg-pink-500  hover:brightness-110 duration-300 cursor-pointer py-2`}
+              >
+                <div className='flex items-center'>
+                  <FaBloggerB className="mx-2 text-xl" />
+                  {navOpen && <div className="text-lg">Blog</div>}
+                </div>
+                <HiChevronUp
+                  className={`${
+                    navSelect === 3 ? "" : 'rotate-180'
+                  }  duration-300 text-[2rem]`}
+                />
+              </div>
+              <div className=" shadow-inner">
+                <DropDownMenu
+                  submenu={'c0'}
+                  navId={3}
+                  navSelect={navSelect}
+                  menuSelect={menuSelect}
+                  navSubOpen={navSubOpen}
+                  textMenu={'blog'}
+                  setMenuSelect={setMenuSelect}
+                  route={'blog'}
+                />
+                
               </div>
             </div>
             <div>
               <div
                 onClick={() => handleSelectNav(5)}
-                className=" flex items-center bg-adopsoftdark hover:brightness-110 duration-300 cursor-pointer py-2"
+                className={`${navSelect === 5 ? "brightness-90" : ""} flex items-center justify-between bg-pink-500  hover:brightness-110 duration-300 cursor-pointer py-2`}
               >
-                <BiMoneyWithdraw className="mx-2 text-xl" />
-                {navOpen && <div className="text-lg">คำขอถอนเงิน</div>}
-              </div>
-
-              <div
-                className={`${
-                  navSelect === 5 && navSubOpen === true
-                    ? 'h-[44px]'
-                    : ' h-[0px]'
-                } duration-300 bg-adoppix overflow-hidden`}
-              >
-                <div className="text-xl pl-14 flex items-center hover:brightness-110 duration-300 cursor-pointer py-2">
-                  <NavLink to="withdraw">จัดการคำขอถอนเงิน</NavLink>
+                <div className='flex items-center'>
+                <RiAdminLine className="mx-2 text-xl" />
+                  {navOpen && <div className="text-lg">User</div>}
                 </div>
-              </div>
-            </div>
-            {isSa && (
-              <div>
-                <div
-                  onClick={() => handleSelectNav(6)}
-                  className=" flex items-center bg-adopsoftdark hover:brightness-110 duration-300 cursor-pointer py-2"
-                >
-                  <RiAdminLine className="mx-2 text-xl" />
-                  {navOpen && <div className="text-lg">พนักงาน</div>}
-                </div>
-
-                <div
+                <HiChevronUp
                   className={`${
-                    navSelect === 6 && navSubOpen === true
-                      ? 'h-[88px]'
-                      : ' h-[0px]'
-                  } duration-300 bg-adoppix overflow-hidden`}
-                >
-                  <div className="text-xl pl-14 flex items-center hover:brightness-110 duration-300 cursor-pointer py-2">
-                    <NavLink to="admin/management">จัดการผู้ดูแล</NavLink>
-                  </div>
-                  <div className="text-xl pl-14 flex items-center hover:brightness-110 duration-300 cursor-pointer py-2">
-                    <NavLink to="admin/register">ลงทะเบียนผู้ดูแล</NavLink>
-                  </div>
-                </div>
+                    navSelect === 5 ? "" : 'rotate-180'
+                  }  duration-300 text-[2rem]`}
+                />
               </div>
-            )}
-
-            <div>
-              <div
-                onClick={() => handleSelectNav(7)}
-                className=" flex items-center bg-adopsoftdark hover:brightness-110 duration-300 cursor-pointer py-2"
-              >
-                <AiFillWechat className="mx-2 text-xl" />
-                {navOpen && <div className="text-lg">จัดการคำถาม</div>}
-              </div>
-
-              <div
-                className={`${
-                  navSelect === 7 && navSubOpen === true
-                    ? 'h-[44px]'
-                    : ' h-[0px]'
-                } duration-300 bg-adoppix overflow-hidden`}
-              >
-                <div className="text-xl pl-14 flex items-center hover:brightness-110 duration-300 cursor-pointer py-2">
-                  <NavLink to="qa">ถอบ - ตอบ</NavLink>
-                </div>
+              <div className=" shadow-inner">
+                <DropDownMenu
+                  submenu={'f0'}
+                  navId={5}
+                  navSelect={navSelect}
+                  menuSelect={menuSelect}
+                  navSubOpen={navSubOpen}
+                  textMenu={'จัดการผู้ใช้'}
+                  setMenuSelect={setMenuSelect}
+                  route={'user/management'}
+                />
+             
               </div>
             </div>
+ 
+
+           
           </div>
         </div>
         <div>
           <div
             onClick={() => logout(() => resetRoute())}
-            className=" flex items-center bg-adopsoftdark hover:brightness-110 duration-300 cursor-pointer py-2"
+            className=" flex items-center bg-pink-500  hover:brightness-110 duration-300 cursor-pointer py-2"
           >
             <BiLogOut className="mx-2 text-xl" />
             {navOpen && <div className="text-lg">Logout</div>}
           </div>
         </div>
+      </div>
+    </div>
+  );
+};
+
+export const DropDownMenu = ({
+  submenu,
+  navId,
+  navSelect,
+  menuSelect,
+  navSubOpen,
+  textMenu,
+  setMenuSelect,
+  route,
+}) => {
+  return (
+    <div
+      className={`${
+        navSelect === navId && navSubOpen === true ? 'h-[44px]' : ' h-[0px]'
+      } duration-300  ${
+        menuSelect === submenu ? 'bg-pink-500' : 'bg-pink-400 '
+      }  overflow-hidden`}
+    >
+      <div className="text-xl pl-14 flex items-center hover:brightness-110 duration-300 cursor-pointer py-2">
+        <NavLink to={route} onClick={() => setMenuSelect(submenu)}>
+          {textMenu}
+        </NavLink>
       </div>
     </div>
   );

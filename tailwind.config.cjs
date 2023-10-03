@@ -16,6 +16,8 @@ module.exports = {
       adoplight: "#f1f5f9",
       adoplighticon: "#b7b7b7",
       adoppix: "#4F9FDA",
+      cu: "#f988d8",
+      cudark: "#292e40",
       gray: {
         50: "#fafafa",
         100: "#f5f5f5",
@@ -35,7 +37,11 @@ module.exports = {
       },
       boxShadow: {
         'section-center': '0px 0px 23px -6px rgba(47, 47, 47, 0.25)',
-      }
+      },
+      transitionProperty: {
+        'height': 'height',
+        'opacity': 'opacity',
+      },
     },
   },
   plugins: [

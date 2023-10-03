@@ -30,7 +30,7 @@ export const Withdraw = () => {
   return (
     <div className="mx-4 mt-10 w-full text-white">
       <h1 className="font-semibold text-2xl mb-4">จัดการคำขอถอนเงิน</h1>
-      <div className="grid grid-cols-7 bg-adopsoftdark p-2 py-6 mb-5 rounded-lg">
+      <div className="grid grid-cols-7 bg-adopsoftdark  p-2 py-6 mb-5 rounded-lg">
         <div className="">
           <p className="flex-1 text-white font-bold">id</p>
         </div>

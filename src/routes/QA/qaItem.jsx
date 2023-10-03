@@ -42,7 +42,7 @@ export const QAItem = ({ qa }) => {
   }
 
   return (
-    <div className=" p-5 rounded-lg w-1/5 mr-2 mt-2 bg-adopsoftdark shadow-lg">
+    <div className=" p-5 rounded-lg w-1/5 mr-2 mt-2 bg-adopsoftdark  shadow-lg">
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center">
           <img className="w-2/12 rounded-full" src={profileImage} />

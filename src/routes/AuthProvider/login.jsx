@@ -32,7 +32,10 @@ export const Login = () => {
         config
       );
       if (response.status) {
-        authenicate(response, () => {navigate('/');  window.location.reload();});
+        authenicate(response, () => {
+          navigate('/');
+          window.location.reload();
+        });
       }
     } catch (error) {
       console.error(error);
@@ -70,28 +73,33 @@ export const Login = () => {
   // };
 
   return (
-    <div className="h-screen w-screen bg-adopdark text-white flex justify-center items-center">
-      <div className="w-[380px] bg-adopsoftdark rounded-lg p-10">
+    <div
+      className="h-screen w-screen  text-white flex justify-center items-center space-x-2 bg-cover"
+      style={{
+        background: `url("https://www.chula.ac.th/wp-content/uploads/2020/07/CU8.jpg")`,
+      }}
+    >
+      <div className="w-[600px] shadow-2xl h-[400px] backdrop-blur-sm bg-white/30 rounded-md "></div>
+      <div className="w-[380px] shadow-2xl bg-white  rounded-md p-10 text-black">
         <div>
-          <div className="text-2xl text-center text-adoppix font-bold">
-            AdopPix
+          <div className="text-4xl text-center text-cu font-bold">
+            TA Service
           </div>
-          <div className="text-2xl text-center">Back Office</div>
+          <div className="text-lg text-center text-gray-500 font-bold opacity-50">Back Office</div>
           <div></div>
         </div>
         <div className="mt-4">
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col">
-              <label htmlFor="">อีเมล</label>
+              <label htmlFor="">ผู้ใช้</label>
               <input
                 id="email"
                 type="email"
                 name="email"
-                placeholder="name@adoppix.com"
                 required={true}
                 value={formData.email}
                 onChange={handleInputChange}
-                className="rounded-lg h-10 bg-adopdark m-2 px-2"
+                className="rounded-lg h-10 bg-white m-2 px-2"
               />
             </div>
             <div className="flex flex-col">
@@ -103,17 +111,17 @@ export const Login = () => {
                 required={true}
                 value={formData.password}
                 onChange={handleInputChange}
-                className="rounded-lg h-10 bg-adopdark m-2 px-2"
+                className="rounded-lg h-10 bg-white m-2 px-2"
               />
             </div>
-            <div>
+            <div className='flex justify-center'>
               <button
                 disabled={isLoading}
                 type="submit"
-                className="bg-adoppix w-full rounded-lg h-10 mt-8 disabled:bg-gray-500 disabled:cursor-not-allowed"
+                className="bg-cu text-white font-bold w-10/12 rounded-lg h-10 mt-8 disabled:bg-gray-500 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
-                  <div className='flex justify-center'>
+                  <div className="flex justify-center">
                     <svg
                       className="animate-spin w-[24px] text-white"
                       xmlns="http://www.w3.org/2000/svg"
